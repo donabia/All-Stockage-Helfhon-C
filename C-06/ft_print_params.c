@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sitier <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 02:36:12 by sitier            #+#    #+#             */
-/*   Updated: 2025/07/21 09:05:12 by sitier           ###   ########.fr       */
+/*   Created: 2025/07/23 12:18:31 by sitier            #+#    #+#             */
+/*   Updated: 2025/07/23 12:29:47 by sitier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char *str);
+void	ft_putstr(char *str);
 
-int	ft_strlen(char *str)
+int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = 1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
 		i++;
-	return (i);
+	}
 }
-/*
-void	main(void)
+void	ft_putstr(char *str)
 {
-	printf("%d", ft_strlen("Mugget"));
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		write (1, &str[i], 1);
+	}
+	write(1, 
 }
-*/
