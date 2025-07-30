@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sitier <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 13:59:04 by sitier            #+#    #+#             */
-/*   Updated: 2025/07/29 14:43:55 by sitier           ###   ########.fr       */
+/*   Created: 2025/07/23 20:11:19 by sitier            #+#    #+#             */
+/*   Updated: 2025/07/30 16:45:00 by sitier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char *str);
-
-int	main(int argc, char **argv)
-{
-	ft_putstr(argv[0]);
-}
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
-	i = -1;
-	while (str[++i])
-		write (1, &str[i], 1);
-	write (1, "\n", 1);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+	int		i;
+
+	i = ft_strlen(src);
+	dest = malloc(sizeof(char) * i + 1);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
 }

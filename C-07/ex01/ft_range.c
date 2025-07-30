@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sitier <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 13:59:04 by sitier            #+#    #+#             */
-/*   Updated: 2025/07/29 14:43:55 by sitier           ###   ########.fr       */
+/*   Created: 2025/07/28 14:00:41 by sitier            #+#    #+#             */
+/*   Updated: 2025/07/30 17:47:47 by sitier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char *str);
-
-int	main(int argc, char **argv)
+int	*ft_range(int min, int max)
 {
-	ft_putstr(argv[0]);
-}
+	int	range;
+	int	*array;
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write (1, &str[i], 1);
-	write (1, "\n", 1);
+	range = min;
+	if (min >= max)
+		return (array);
+	while (range < max)
+		range++;
+	array = malloc(sizeof(int) * range);
+	range = 0;
+	while (min < max)
+	{
+		array[range] = min;
+		range++;
+		min++;
+	}
+	return (array);
 }
